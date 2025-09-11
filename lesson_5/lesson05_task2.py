@@ -7,8 +7,8 @@ from selenium.webdriver.common.by import By
 driver = webdriver.Chrome(
     service=ChromeService(ChromeDriverManager().install()))
 
-driver.get("http://uitestingplayground.com/classattr/")
+driver.get("http://uitestingplayground.com/dynamicid/")
 button = driver.find_element(By.CSS_SELECTOR, "button.btn-primary")
 button.click()
-sleep(10)    # установили «засыпание» браузера
+sleep(10)
 driver.quit()
