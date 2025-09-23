@@ -5,12 +5,11 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-driver = webdriver.Chrome(
-    service=ChromeService(ChromeDriverManager().install()))
-wait = WebDriverWait(driver, 55)
-
 
 def test_02_calc():
+    driver = webdriver.Chrome(
+        service=ChromeService(ChromeDriverManager().install()))
+    wait = WebDriverWait(driver, 55)
     driver.get(
         "https://bonigarcia.dev/selenium-webdriver-java/slow-calculator.html")
 
@@ -31,6 +30,3 @@ def test_02_calc():
     print(f"Результат {result} появился через 45 секунд")
 
     driver.quit()
-
-
-test_02_calc()

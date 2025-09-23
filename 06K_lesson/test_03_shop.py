@@ -45,6 +45,3 @@ def test_03_shop():
     print(f"Итоговая сумма {s}")
 
     driver.quit()
-
-
-test_03_shop()

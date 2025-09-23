@@ -7,12 +7,12 @@ from selenium.webdriver.edge.options import Options
 
 options = Options()
 
-dr_path = r"C:\Users\V\Downloads\edgedriver_win64 (1)\msedgedriver.exe"
-service = EdgeService(dr_path)
-driver = webdriver.Edge(service=service)
-
 
 def test_01_form():
+    dr_path = r"C:\Users\V\Downloads\edgedriver_win64 (1)\msedgedriver.exe"
+    service = EdgeService(dr_path)
+    driver = webdriver.Edge(service=service)
+
     driver.get(
         "https://bonigarcia.dev/selenium-webdriver-java/data-types.html")
 
@@ -48,6 +48,3 @@ def test_01_form():
         print(f"Поле {name} подсвечено зеленым")
 
     driver.quit()
-
-
-test_01_form()
