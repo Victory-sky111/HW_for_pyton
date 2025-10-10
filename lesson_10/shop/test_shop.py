@@ -1,3 +1,4 @@
+import allure
 from selenium import webdriver
 from selenium.webdriver.firefox.service import Service as FirefoxService
 from webdriver_manager.firefox import GeckoDriverManager
@@ -8,6 +9,8 @@ from cart_page import CartPage
 from buy_page import BuyPage
 
 
+@allure.epic("Интернет-магазин")
+@allure.severity("blocker")
 def test_sauce_demo_checkout():
     driver = webdriver.Firefox(
         service=FirefoxService(GeckoDriverManager().install()))

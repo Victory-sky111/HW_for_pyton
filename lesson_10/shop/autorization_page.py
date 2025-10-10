@@ -1,7 +1,7 @@
+import allure
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-# from webdriver_manager.chrome import ChromeDriverManager
 
 
 class AutorizationPage:
@@ -14,9 +14,13 @@ class AutorizationPage:
         self.password = (By.ID, "password")
         self.login_button = (By.ID, "login-button")
 
+    @allure.title("Открытие браузера")
+    @allure.story("Открываем браузер с необходимым сайтом")
     def open(self):
         self.driver.get(self.url)
 
+    @allure.title("Авторизация")
+    @allure.story("Вводим логин и пароль для авторизации")
     def login(self, user, password):
         self.wait.until(EC.visibility_of_element_located(
             self.username)).send_keys(user)

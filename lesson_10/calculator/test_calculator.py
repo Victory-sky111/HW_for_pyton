@@ -1,14 +1,21 @@
+import allure
+import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 from MainPage import CalculatorMainPage
 
 
+@allure.id("SKYPRO-1")
+@allure.story("Открываем браузер и вводим время ожидания")
+@allure.epic("Калькулятор")
+@allure.severity("blocker")
 def test_calculator():
     driver = webdriver.Chrome(
         service=ChromeService(ChromeDriverManager().install()))
     driver.maximize_window()
 
+    # @allure.story("Открываем браузер и вводим время ожидания")
     page = CalculatorMainPage(driver)
     page.open()
     page.set_delay(3)
