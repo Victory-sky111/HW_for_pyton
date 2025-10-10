@@ -5,7 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 class BuyPage:
-    def __init__(self, driver):
+    def __init__(self, driver) -> None:
         self.driver = driver
         self.wait = WebDriverWait(driver, 20)
 
@@ -15,7 +15,8 @@ class BuyPage:
         self.continue_button = (By.ID, "continue")
         self.total_label = (By.CLASS_NAME, "summary_total_label")
 
-    def fill_out_form(self, first, last, zip_code):
+    @allure.step("Заполняем поля данными покупателя")
+    def fill_out_form(self, first, last, zip_code) -> None:
         self.wait.until(
             EC.visibility_of_element_located(
                 self.first_name)).send_keys(first)
@@ -24,7 +25,8 @@ class BuyPage:
         self.driver.find_element(*self.continue_button).click()
         self.wait.until(EC.visibility_of_element_located(self.total_label))
 
-    def get_total(self):
+    @allure.step("Выводим итоговую сумму покупок")
+    def get_total(self) -> str:
         element = self.wait.until(
             EC.visibility_of_element_located(self.total_label)).text
         return element.replace("Total: ", "").strip()
