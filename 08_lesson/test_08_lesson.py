@@ -1,7 +1,7 @@
 import requests
 
 base_url = "https://ru.yougile.com/api-v2"
-token = "bpbOO9GWrgXzE7uEKkx8YwAtfaleiWJBuwTjKoT8eY-D0YyiKjCgEnlTj0OfSsja"
+token = "ТОКЕН"
 headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
 
 
